@@ -65,12 +65,11 @@ def VirtualNetworks(req: func.HttpRequest) -> func.HttpResponse:
         vnet_names = [vnet.name for vnet in vnets]
 
         # Return the list of VNets as a JSON response
-        #return func.HttpResponse(
-        #    body=str(vnet_names),
-        #    status_code=200,
-        #    mimetype="application/json"
-        #)
-        return func.HttpResponse(f"Hello, {resource_group_name}. This HTTP triggered function executed successfully.")
+        return func.HttpResponse(
+            body=str(vnet_names),
+            status_code=200,
+            mimetype="application/json"
+        )
 
     except Exception as e:
         logging.error(f"Error occurred: {str(e)}")
