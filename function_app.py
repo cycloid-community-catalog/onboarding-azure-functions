@@ -1,7 +1,7 @@
 import azure.functions as func
 from azure.identity import DefaultAzureCredential
 #from azure.mgmt.resource import ResourceManagementClient
-#import os
+import os
 import datetime
 import json
 import logging
@@ -54,8 +54,8 @@ def VirtualNetworks(req: func.HttpRequest) -> func.HttpResponse:
         
         # Initialize the Azure SDK client with DefaultAzureCredential (which supports managed identity, environment variables, etc.)
         credential = DefaultAzureCredential()
-        #subscription_id = os.environ["AZURE_SUBSCRIPTION_ID"]
-        #network_client = NetworkManagementClient(credential, subscription_id)
+        subscription_id = os.getenv["AZURE_SUBSCRIPTION_ID"]
+        network_client = NetworkManagementClient(credential, subscription_id)
 
         # List all VNets in the given resource group
         #vnets = network_client.virtual_networks.list(resource_group_name)
