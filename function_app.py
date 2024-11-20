@@ -53,22 +53,23 @@ def VirtualNetworks(req: func.HttpRequest) -> func.HttpResponse:
             )
         
         # Initialize the Azure SDK client with DefaultAzureCredential (which supports managed identity, environment variables, etc.)
-        credential = DefaultAzureCredential()
-        subscription_id = os.environ["AZURE_SUBSCRIPTION_ID"]
-        network_client = NetworkManagementClient(credential, subscription_id)
+        #credential = DefaultAzureCredential()
+        #subscription_id = os.environ["AZURE_SUBSCRIPTION_ID"]
+        #network_client = NetworkManagementClient(credential, subscription_id)
 
         # List all VNets in the given resource group
-        vnets = network_client.virtual_networks.list(resource_group_name)
+        #vnets = network_client.virtual_networks.list(resource_group_name)
         
         # Prepare the response data (list of VNets)
-        vnet_names = [vnet.name for vnet in vnets]
+        #vnet_names = [vnet.name for vnet in vnets]
 
         # Return the list of VNets as a JSON response
-        return func.HttpResponse(
-            body=str(vnet_names),
-            status_code=200,
-            mimetype="application/json"
-        )
+        #return func.HttpResponse(
+        #    body=str(vnet_names),
+        #    status_code=200,
+        #    mimetype="application/json"
+        #)
+        return func.HttpResponse(f"Hello, {resource_group_name}. This HTTP triggered function executed successfully.")
 
     except Exception as e:
         logging.error(f"Error occurred: {str(e)}")
