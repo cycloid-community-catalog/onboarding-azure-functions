@@ -1,7 +1,7 @@
 import azure.functions as func
 from azure.identity import DefaultAzureCredential
-from azure.mgmt.resource import ResourceManagementClient
-import os
+#from azure.mgmt.resource import ResourceManagementClient
+#import os
 import datetime
 import json
 import logging
