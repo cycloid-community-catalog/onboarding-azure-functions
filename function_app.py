@@ -1,7 +1,7 @@
 import azure.functions as func
 from azure.identity import DefaultAzureCredential
-#from azure.mgmt.resource import ResourceManagementClient
-#import os
+from azure.mgmt.resource import ResourceManagementClient
+import os
 import datetime
 import json
 import logging
@@ -53,7 +53,7 @@ def VirtualNetworks(req: func.HttpRequest) -> func.HttpResponse:
             )
         
         # Initialize the Azure SDK client with DefaultAzureCredential (which supports managed identity, environment variables, etc.)
-        #credential = DefaultAzureCredential()
+        credential = DefaultAzureCredential()
         #subscription_id = os.environ["AZURE_SUBSCRIPTION_ID"]
         #network_client = NetworkManagementClient(credential, subscription_id)
 
